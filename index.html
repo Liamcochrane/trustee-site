@@ -465,6 +465,8 @@
   .fade-in-hero:nth-child(3) { animation-delay: 0.3s; }
   .fade-in-hero:nth-child(4) { animation-delay: 0.45s; }
   .fade-in-hero:nth-child(5) { animation-delay: 0.6s; }
+  .fade-in-hero:nth-child(6) { animation-delay: 0.75s; }
+  .fade-in-hero:nth-child(7) { animation-delay: 0.9s; }
 
   @keyframes heroIn {
     to { opacity: 1; transform: translateY(0); }
@@ -555,11 +557,12 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="fade-in-hero" style="margin-bottom: 32px;">
-      <img src="Liam_Flyer.png" alt="Liam Cochrane" style="width: 200px; height: auto; border-radius: 50%; object-fit: cover; object-position: top;">
-    </div>
     <div class="fade-in-hero write-in-badge">Write-in Candidate</div>
-    <h1 class="fade-in-hero">Write in <em>Liam C</em> for student trustee.</h1>
+    <h1 class="fade-in-hero" style="margin-bottom: 0;">Write in <em>Liam C</em></h1>
+    <div class="fade-in-hero" style="margin: 36px 0;">
+      <img src="Liam_Flyer.png" alt="Liam Cochrane" style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover; object-position: center 20%;">
+    </div>
+    <h1 class="fade-in-hero" style="margin-bottom: 24px;">for student trustee.</h1>
     <p class="fade-in-hero hero-sub">Free premium AI tools. Free daily meals. Two things every PCCD student should have and doesn't.</p>
     <div class="fade-in-hero cta-row" style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:16px;">
       <a href="#vote" class="hero-cta">How to write me in</a>
