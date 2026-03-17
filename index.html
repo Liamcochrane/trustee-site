@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Liam Cochrane — Student Trustee</title>
+<title>Liam Cochrane for Student Trustee</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
 
@@ -261,7 +261,7 @@
   /* ── PLATFORM ── */
   .platform-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
     margin-top: 48px;
   }
@@ -471,16 +471,62 @@
   }
 
   /* ── RESPONSIVE ── */
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--black);
+    margin: 4px 0;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 48px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(251, 251, 253, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 99;
+    padding: 40px 24px;
+  }
+
+  .nav-mobile-overlay.open { display: block; }
+
+  .nav-mobile-overlay a {
+    display: block;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--black);
+    text-decoration: none;
+    padding: 16px 0;
+    letter-spacing: -0.02em;
+  }
+
   @media (max-width: 734px) {
     nav .nav-links { display: none; }
+    .nav-hamburger { display: block; }
     section { padding: 80px 20px 60px; }
     .about { padding: 80px 20px; }
     .vote-section { padding: 80px 20px; }
-    .timeline { padding-left: 28px; }
-    .timeline-item::before { left: -35px; }
     .vote-steps { flex-direction: column; align-items: center; }
     .hero-cta-secondary { margin-left: 0; margin-top: 16px; display: flex; }
     .cta-row { flex-direction: column; align-items: center; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .stat { padding: 24px 16px; }
+    .stat-number { font-size: 32px; }
+    .platform-card { padding: 28px 24px; }
   }
 </style>
 </head>
@@ -491,128 +537,122 @@
   <div class="nav-inner">
     <div class="nav-name">Liam Cochrane</div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#platform">Platform</a></li>
-      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">AI Access</a></li>
+      <li><a href="#meals">Basic Needs</a></li>
       <li><a href="#vote">Vote</a></li>
     </ul>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="nav-mobile-overlay" id="mobileMenu">
+  <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">AI Access</a>
+  <a href="#meals" onclick="document.getElementById('mobileMenu').classList.remove('open')">Basic Needs</a>
+  <a href="#vote" onclick="document.getElementById('mobileMenu').classList.remove('open')">Vote</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
+    <div class="fade-in-hero" style="margin-bottom: 32px;">
+      <img src="Liam_Flyer.png" alt="Liam Cochrane" style="width: 200px; height: auto; border-radius: 50%; object-fit: cover; object-position: top;">
+    </div>
     <div class="fade-in-hero write-in-badge">Write-in Candidate</div>
-    <h1 class="fade-in-hero">A trustee who <em>actually</em> knows the work.</h1>
-    <p class="fade-in-hero hero-sub">West Oakland raised. Line worker turned engineer. Running for PCCD Student Trustee to bring real experience to the board.</p>
+    <h1 class="fade-in-hero">Write in <em>Liam C</em> for student trustee.</h1>
+    <p class="fade-in-hero hero-sub">Free premium AI tools. Free daily meals. Two things every PCCD student should have and doesn't.</p>
     <div class="fade-in-hero cta-row" style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:16px;">
       <a href="#vote" class="hero-cta">How to write me in</a>
-      <a href="#about" class="hero-cta-secondary">Learn more <span class="arrow">&#8594;</span></a>
+      <a href="#about" class="hero-cta-secondary">See the plan <span class="arrow">&#8594;</span></a>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- THE ISSUE -->
 <section class="about" id="about">
   <div class="about-inner">
-    <div class="fade-in section-label">About</div>
-    <h2 class="fade-in section-headline">From the grid to the classroom.</h2>
+    <div class="fade-in section-label">The issue</div>
+    <h2 class="fade-in section-headline">AI is the new textbook. And students can't afford it.</h2>
     <div class="fade-in about-body">
-      <p>I grew up in West Oakland and went straight into the trades — climbing poles for PG&E as an IBEW lineman, wiring solar arrays, and learning what infrastructure actually looks like from 60 feet up.</p>
-      <p>Now I'm at Berkeley City College with a 4.0 GPA, a Phi Theta Kappa member on track to transfer into UC Berkeley's EECS program, and heading into a research internship at Lawrence Berkeley National Laboratory this summer.</p>
-      <p>I've sat where most PCCD students sit. I know what it's like to navigate financial aid with no safety net, to commute across the district, and to build a future without a blueprint. That's exactly why I'm running.</p>
+      <p>Premium AI tools like ChatGPT Pro, Claude, and GitHub Copilot cost $20 to $200 per month. Students at universities with institutional licenses get them for free. Community college students don't.</p>
+      <p>That's not a technology gap. It's an equity gap. PCCD students are writing essays, debugging code, and studying for exams without the same tools their UC and Stanford peers use daily. The district can fix this.</p>
+      <p>As Student Trustee, I'll push the board to negotiate institutional AI subscriptions funded through existing technology fees so every student in the Peralta district gets access on day one.</p>
     </div>
 
     <div class="fade-in stats-row">
       <div class="stat">
-        <div class="stat-number">4.0</div>
-        <div class="stat-label">GPA</div>
+        <div class="stat-number">$20+</div>
+        <div class="stat-label">Monthly cost per tool</div>
       </div>
       <div class="stat">
-        <div class="stat-number">PTK</div>
-        <div class="stat-label">Phi Theta Kappa</div>
+        <div class="stat-number">0</div>
+        <div class="stat-label">AI tools PCCD provides</div>
       </div>
       <div class="stat">
-        <div class="stat-number">LBNL</div>
-        <div class="stat-label">Research Intern</div>
+        <div class="stat-number">UC</div>
+        <div class="stat-label">Has ChatGPT Edu licenses</div>
       </div>
       <div class="stat">
-        <div class="stat-number">IBEW</div>
-        <div class="stat-label">Union Member</div>
+        <div class="stat-number">PCCD</div>
+        <div class="stat-label">Has nothing</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PLATFORM -->
+<!-- PLAN -->
 <section id="platform">
-  <div class="fade-in section-label">Platform</div>
-  <h2 class="fade-in section-headline">What I'll fight for.</h2>
+  <div class="fade-in section-label">The plan</div>
+  <h2 class="fade-in section-headline">How we get every student premium AI access.</h2>
 
   <div class="platform-grid">
     <div class="fade-in platform-card">
-      <div class="card-icon">&#9889;</div>
-      <h3>Transfer equity</h3>
-      <p>Streamline articulation with UC and CSU systems so PCCD students don't lose credits or time on a path that should be clear.</p>
+      <h3>Institutional licensing</h3>
+      <p>Negotiate district-wide educational licenses with Anthropic, OpenAI, and GitHub at a fraction of retail cost. The same model UCs already use.</p>
     </div>
     <div class="fade-in platform-card">
-      <div class="card-icon">&#128218;</div>
-      <h3>AI & technology access</h3>
-      <p>Advocate for institutional AI tool access as a student equity issue — not a luxury, but infrastructure for learning.</p>
+      <h3>Fund it with existing fees</h3>
+      <p>PCCD already collects technology fees. Redirect a portion toward AI tools instead of underused legacy software contracts.</p>
     </div>
     <div class="fade-in platform-card">
-      <div class="card-icon">&#127981;</div>
-      <h3>Workforce alignment</h3>
-      <p>Bridge the gap between CTE programs and Bay Area industry. Trade students and tech students deserve the same institutional support.</p>
+      <h3>Access from day one</h3>
+      <p>Every enrolled student gets a login through their student email. No applications, no waitlists, no means testing.</p>
     </div>
     <div class="fade-in platform-card">
-      <div class="card-icon">&#128101;</div>
-      <h3>Disability services</h3>
-      <p>Expand DSPS funding and reduce wait times. Accommodations should be a right that's enforced, not a process that exhausts.</p>
+      <h3>Faculty integration</h3>
+      <p>Work with instructors to build AI into coursework. Not as a shortcut, but as a tool students need to know for the workforce.</p>
     </div>
     <div class="fade-in platform-card">
-      <div class="card-icon">&#128176;</div>
-      <h3>Financial transparency</h3>
-      <p>Push for clear, accessible reporting on how the district spends student fees and bond revenue.</p>
+      <h3>Equity, not advantage</h3>
+      <p>Students paying out of pocket for AI tools are subsidizing their own education. Community college students shouldn't have to.</p>
     </div>
     <div class="fade-in platform-card">
-      <div class="card-icon">&#127793;</div>
-      <h3>Student housing & food</h3>
-      <p>Support emergency housing and food programs. You can't study on an empty stomach or from a car.</p>
+      <h3>Transfer-ready skills</h3>
+      <p>UC and CSU campuses expect AI fluency. Giving PCCD students access now means they transfer prepared, not behind.</p>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" style="padding-bottom: 100px;">
-  <div class="fade-in section-label">Experience</div>
-  <h2 class="fade-in section-headline">Where I've been.</h2>
+<!-- MEALS -->
+<section class="about" id="meals">
+  <div class="about-inner">
+    <div class="fade-in section-label">Basic needs</div>
+    <h2 class="fade-in section-headline">You can't study on an empty stomach.</h2>
+    <div class="fade-in about-body">
+      <p>PCCD students are choosing between lunch and a bus pass. That's not a personal failure. It's a policy gap.</p>
+      <p>I want the board to fund free daily meals at every campus Basic Needs center. Not a food pantry referral. Not a once-a-semester emergency box. A meal, every day, for anyone enrolled.</p>
+      <p>California already covers tuition. Covering lunch is not a radical idea.</p>
+    </div>
 
-  <div class="timeline">
-    <div class="fade-in timeline-item">
-      <div class="timeline-date">Summer 2026</div>
-      <div class="timeline-title">Research Intern — Lawrence Berkeley National Laboratory</div>
-      <div class="timeline-desc">Demand response and grid flexibility research, investigating solutions to California's duck curve problem.</div>
-    </div>
-    <div class="fade-in timeline-item">
-      <div class="timeline-date">2025</div>
-      <div class="timeline-title">Robotics Technician — Zeroshot Robotics</div>
-      <div class="timeline-desc">Hands-on deployment and data logging for autonomous robotic systems.</div>
-    </div>
-    <div class="fade-in timeline-item">
-      <div class="timeline-date">2023 – 2024</div>
-      <div class="timeline-title">Electric Line Worker — PG&E / IBEW</div>
-      <div class="timeline-desc">Front-line infrastructure work upgrading the grid that powers the East Bay. VOLTA Line School graduate.</div>
-    </div>
-    <div class="fade-in timeline-item">
-      <div class="timeline-date">2022 – 2023</div>
-      <div class="timeline-title">Solar Installer — Corda Solar</div>
-      <div class="timeline-desc">Residential and commercial solar array installation across the Bay Area.</div>
-    </div>
-    <div class="fade-in timeline-item">
-      <div class="timeline-date">2021</div>
-      <div class="timeline-title">Externship — Lawrence Berkeley National Laboratory</div>
-      <div class="timeline-desc">First exposure to energy research through Rising Sun's partnership with LBNL.</div>
+    <div class="fade-in stats-row">
+      <div class="stat">
+        <div class="stat-number">50%</div>
+        <div class="stat-label">Of CA CC students face food insecurity</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">4</div>
+        <div class="stat-label">PCCD campuses that need this</div>
+      </div>
     </div>
   </div>
 </section>
@@ -622,7 +662,7 @@
   <div class="vote-inner">
     <div class="fade-in section-label">Vote</div>
     <h2 class="fade-in section-headline">Writing me in takes 10 seconds.</h2>
-    <p class="fade-in vote-sub">I'm not on the printed ballot. That means your vote requires one extra step — but it's the step that makes it count.</p>
+    <p class="fade-in vote-sub">I'm not on the printed ballot. That means your vote requires one extra step, but it's the step that makes it count.</p>
 
     <div class="fade-in vote-steps">
       <div class="vote-step">
